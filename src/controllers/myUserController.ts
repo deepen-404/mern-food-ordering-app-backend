@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import User from "../models/myUserModel";
+import User from "../models/user";
 
 const getCurrentUser = async (req: Request, res: Response) => {
   try {
@@ -39,15 +39,11 @@ const createCurrentUser = async (req: Request, res: Response) => {
 };
 
 const updateCurrentUser = async (req: Request, res: Response) => {
-  // console.log("updat use ma pugyo ??")
   try {
     const { name, addressLine1, country, city } = req.body;
-    // console.log("req body: ",req)
     const user = await User.findById(req.userId);
 
-    // checking if the user exists or not
     if (!user) {
-      // console.log("u ser vetiyo");
       return res.status(404).json({ message: "User not found !!" });
     }
 
