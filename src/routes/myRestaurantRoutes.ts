@@ -16,6 +16,21 @@ const upload = multer({
 
 // api/my/restarurant
 
+// put = to update the entire entity
+// patch = only update a part of the entity
+router.get(
+  "/order",
+  jwtCheck,
+  jwtParse,
+  myRestaurantController.getMyRestaurantOrders
+);
+
+router.patch(
+  "/order/:orderId/status",
+  jwtCheck,
+  jwtParse,
+  myRestaurantController.updateOrderStatus
+);
 router.post(
   "/",
   upload.single("imageFile"),
