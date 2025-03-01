@@ -7,6 +7,7 @@ import myUserRoutes from "./routes/myUserRoutes";
 import myRestaurantRoutes from "./routes/myRestaurantRoutes";
 import restaurantRoutes from "./routes/restaurantRoutes";
 import orderRoutes from "./routes/orderRoutes";
+import salesPerformanceRoutes from "./routes/salesPerformanceRoutes"
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
@@ -38,5 +39,6 @@ app.use("/api/my/user", myUserRoutes);
 app.use("/api/my/restaurant", myRestaurantRoutes);
 app.use("/api/restaurant", restaurantRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/my/restaurant", salesPerformanceRoutes);
 
 app.listen(7000, () => console.log("Server started on localhost:7000"));
